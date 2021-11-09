@@ -68,7 +68,7 @@ def get_user_info(username):
     return db.users.find_one({"username": username})
 
 
-@application.route('/sign_in', methods=['POST'])
+@application.route('/sign-in', methods=['POST'])
 def sign_in():
     # 로그인
     username_receive = request.form['username_give']
@@ -89,7 +89,7 @@ def sign_in():
         return Response(status=401)
 
 
-@application.route('/sign_up/save', methods=['POST'])
+@application.route('/sign-up/save', methods=['POST'])
 def sign_up():
     username_receive = request.form['username_give']
     password_receive = request.form['password_give']
@@ -108,7 +108,7 @@ def sign_up():
     return jsonify({'result': 'success'})
 
 
-@application.route('/sign_up/check_dup', methods=['POST'])
+@application.route('/sign-up/check_dup', methods=['POST'])
 def check_dup():
     username_receive = request.form['username_give']
     exists = bool(db.users.find_one({"username": username_receive}))
